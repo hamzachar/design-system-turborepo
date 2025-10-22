@@ -1,102 +1,269 @@
-import Image, { type ImageProps } from "next/image";
-import { Button } from "@repo/ui/button";
-import styles from "./page.module.css";
+"use client";
 
-type Props = Omit<ImageProps, "src"> & {
-  srcLight: string;
-  srcDark: string;
-};
-
-const ThemeImage = (props: Props) => {
-  const { srcLight, srcDark, ...rest } = props;
-
-  return (
-    <>
-      <Image {...rest} src={srcLight} className="imgLight" />
-      <Image {...rest} src={srcDark} className="imgDark" />
-    </>
-  );
-};
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  Input,
+  Badge,
+  Avatar,
+  Alert,
+  AlertTitle,
+  AlertDescription,
+  Progress,
+  CircularProgress,
+  Skeleton,
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@repo/ui";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <ThemeImage
-          className={styles.logo}
-          srcLight="turborepo-dark.svg"
-          srcDark="turborepo-light.svg"
-          alt="Turborepo logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>apps/web/app/page.tsx</code>
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new/clone?demo-description=Learn+to+implement+a+monorepo+with+a+two+Next.js+sites+that+has+installed+three+local+packages.&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F4K8ZISWAzJ8X1504ca0zmC%2F0b21a1c6246add355e55816278ef54bc%2FBasic.png&demo-title=Monorepo+with+Turborepo&demo-url=https%3A%2F%2Fexamples-basic-web.vercel.sh%2F&from=templates&project-name=Monorepo+with+Turborepo&repository-name=monorepo-turborepo&repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fturborepo%2Ftree%2Fmain%2Fexamples%2Fbasic&root-directory=apps%2Fdocs&skippable-integrations=1&teamSlug=vercel&utm_source=create-turbo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://turborepo.com/docs?utm_source"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 py-12 px-4">
+      <main className="max-w-6xl mx-auto space-y-12">
+        {/* Header */}
+        <div className="text-center space-y-4">
+          <h1 className="text-5xl font-bold text-gray-900">Design System</h1>
+          <p className="text-xl text-gray-600">
+            A comprehensive React component library
+          </p>
+          <div className="flex gap-3 justify-center">
+            <Badge variant="primary">TypeScript</Badge>
+            <Badge variant="secondary">Tailwind CSS</Badge>
+            <Badge variant="success">Radix UI</Badge>
+          </div>
         </div>
-        <Button appName="web" className={styles.secondary}>
-          Open alert
-        </Button>
+
+        {/* Buttons */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Buttons</CardTitle>
+            <CardDescription>Multiple variants and states</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex flex-wrap gap-3">
+              <Button variant="primary">Primary</Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="success">Success</Button>
+              <Button variant="warning">Warning</Button>
+              <Button variant="danger">Danger</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="ghost">Ghost</Button>
+              <Button variant="gradient">Gradient</Button>
+            </div>
+            <div className="flex gap-3">
+              <Button loading>Loading</Button>
+              <Button disabled>Disabled</Button>
+              <Button leftIcon="🚀">With Icon</Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Inputs & Forms */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Form Components</CardTitle>
+            <CardDescription>Input fields and selects</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <Input label="Email" type="email" placeholder="john@example.com" />
+            <Input
+              label="Password"
+              type="password"
+              helperText="Must be at least 8 characters"
+            />
+            <Input
+              label="Error Example"
+              error="This field is required"
+              defaultValue="Invalid input"
+            />
+            <div>
+              <label className="text-sm font-medium text-gray-700 block mb-2">
+                Country
+              </label>
+              <Select defaultValue="us">
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="us">United States</SelectItem>
+                  <SelectItem value="uk">United Kingdom</SelectItem>
+                  <SelectItem value="ca">Canada</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Alerts & Progress */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Alerts</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <Alert variant="success">
+                <AlertTitle>Success!</AlertTitle>
+                <AlertDescription>
+                  Your changes have been saved.
+                </AlertDescription>
+              </Alert>
+              <Alert variant="warning">
+                <AlertTitle>Warning</AlertTitle>
+                <AlertDescription>
+                  Please review before continuing.
+                </AlertDescription>
+              </Alert>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Progress</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <Progress value={75} variant="success" showLabel label="Upload" />
+              <Progress value={45} variant="warning" striped animated />
+              <div className="flex justify-center">
+                <CircularProgress value={65} variant="primary" showLabel />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Tabs */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Tabs</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Tabs defaultValue="tab1">
+              <TabsList>
+                <TabsTrigger value="tab1">Overview</TabsTrigger>
+                <TabsTrigger value="tab2">Analytics</TabsTrigger>
+                <TabsTrigger value="tab3">Settings</TabsTrigger>
+              </TabsList>
+              <TabsContent value="tab1">
+                <p className="text-gray-700">
+                  Overview content with statistics and data.
+                </p>
+              </TabsContent>
+              <TabsContent value="tab2">
+                <p className="text-gray-700">
+                  Analytics and insights dashboard.
+                </p>
+              </TabsContent>
+              <TabsContent value="tab3">
+                <p className="text-gray-700">Configuration and preferences.</p>
+              </TabsContent>
+            </Tabs>
+          </CardContent>
+        </Card>
+
+        {/* Avatars & Badges */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Avatars & Badges</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="flex gap-4 items-center">
+              <Avatar alt="John Doe" size="lg" status="online" />
+              <div>
+                <p className="font-semibold text-gray-900">John Doe</p>
+                <Badge variant="success" dot>
+                  Active
+                </Badge>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Badge variant="primary">React</Badge>
+              <Badge variant="secondary">TypeScript</Badge>
+              <Badge variant="success">Tailwind</Badge>
+              <Badge variant="warning" removable>
+                Draft
+              </Badge>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Dialog */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Dialog</CardTitle>
+            <CardDescription>Modal dialogs and confirmations</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="primary">Open Dialog</Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Welcome to our Design System</DialogTitle>
+                  <DialogDescription>
+                    This is a comprehensive React component library with full
+                    accessibility support.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="py-4">
+                  <p className="text-gray-700">
+                    Built with React, TypeScript, Tailwind CSS, and Radix UI
+                    primitives.
+                  </p>
+                </div>
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <Button variant="outline">Close</Button>
+                  </DialogClose>
+                  <Button variant="primary">Get Started</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          </CardContent>
+        </Card>
+
+        {/* Skeleton */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Loading States</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex items-center gap-4">
+              <Skeleton shape="circle" width="48px" height="48px" />
+              <div className="flex-1 space-y-2">
+                <Skeleton height="1rem" width="60%" />
+                <Skeleton height="1rem" width="40%" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Footer */}
+        <div className="text-center py-8">
+          <p className="text-gray-600">
+            Built with Love using React, TypeScript, Tailwind CSS, and Radix UI
+          </p>
+        </div>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com/templates?search=turborepo&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://turborepo.com?utm_source=create-turbo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to turborepo.com →
-        </a>
-      </footer>
     </div>
   );
 }

@@ -1,0 +1,267 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { Avatar } from "./Avatar";
+
+const meta = {
+  title: "Components/Avatar",
+  component: Avatar,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
+  argTypes: {
+    size: {
+      control: "select",
+      options: ["xs", "sm", "md", "lg", "xl", "2xl"],
+    },
+    status: {
+      control: "select",
+      options: ["online", "offline", "away", "busy"],
+    },
+  },
+} satisfies Meta<typeof Avatar>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const WithImage: Story = {
+  args: {
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+    alt: "John Doe",
+  },
+};
+
+export const WithInitials: Story = {
+  args: {
+    alt: "John Doe",
+  },
+};
+
+export const WithCustomFallback: Story = {
+  args: {
+    fallback: "JD",
+  },
+};
+
+export const WithOnlineStatus: Story = {
+  args: {
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+    alt: "John Doe",
+    status: "online",
+  },
+};
+
+export const WithOfflineStatus: Story = {
+  args: {
+    alt: "John Doe",
+    status: "offline",
+  },
+};
+
+export const WithAwayStatus: Story = {
+  args: {
+    alt: "John Doe",
+    status: "away",
+  },
+};
+
+export const WithBusyStatus: Story = {
+  args: {
+    alt: "John Doe",
+    status: "busy",
+  },
+};
+
+export const BrokenImage: Story = {
+  args: {
+    src: "https://broken-url.com/image.jpg",
+    alt: "Jane Smith",
+  },
+};
+
+export const AllSizes: Story = {
+  render: () => (
+    <div className="flex items-end gap-4 p-4">
+      <div className="text-center">
+        <Avatar size="xs" alt="Extra Small" />
+        <p className="text-xs text-gray-600 mt-2">XS</p>
+      </div>
+      <div className="text-center">
+        <Avatar size="sm" alt="Small Avatar" />
+        <p className="text-xs text-gray-600 mt-2">SM</p>
+      </div>
+      <div className="text-center">
+        <Avatar size="md" alt="Medium Avatar" />
+        <p className="text-xs text-gray-600 mt-2">MD</p>
+      </div>
+      <div className="text-center">
+        <Avatar size="lg" alt="Large Avatar" />
+        <p className="text-xs text-gray-600 mt-2">LG</p>
+      </div>
+      <div className="text-center">
+        <Avatar size="xl" alt="Extra Large" />
+        <p className="text-xs text-gray-600 mt-2">XL</p>
+      </div>
+      <div className="text-center">
+        <Avatar size="2xl" alt="Double Extra Large" />
+        <p className="text-xs text-gray-600 mt-2">2XL</p>
+      </div>
+    </div>
+  ),
+};
+
+export const AllStatuses: Story = {
+  render: () => (
+    <div className="flex gap-6 p-4">
+      <div className="text-center">
+        <Avatar 
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
+          alt="Online User" 
+          status="online" 
+          size="lg"
+        />
+        <p className="text-sm text-gray-600 mt-2 font-medium">Online</p>
+      </div>
+      <div className="text-center">
+        <Avatar 
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
+          alt="Away User" 
+          status="away" 
+          size="lg"
+        />
+        <p className="text-sm text-gray-600 mt-2 font-medium">Away</p>
+      </div>
+      <div className="text-center">
+        <Avatar 
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop"
+          alt="Busy User" 
+          status="busy" 
+          size="lg"
+        />
+        <p className="text-sm text-gray-600 mt-2 font-medium">Busy</p>
+      </div>
+      <div className="text-center">
+        <Avatar 
+          alt="Offline User" 
+          status="offline" 
+          size="lg"
+        />
+        <p className="text-sm text-gray-600 mt-2 font-medium">Offline</p>
+      </div>
+    </div>
+  ),
+};
+
+export const AvatarGroup: Story = {
+  render: () => (
+    <div className="p-4">
+      <div className="flex -space-x-4">
+        <Avatar
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
+          alt="User 1"
+          size="lg"
+          className="ring-2 ring-white"
+        />
+        <Avatar
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
+          alt="User 2"
+          size="lg"
+          className="ring-2 ring-white"
+        />
+        <Avatar
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop"
+          alt="User 3"
+          size="lg"
+          className="ring-2 ring-white"
+        />
+        <Avatar
+          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
+          alt="User 4"
+          size="lg"
+          className="ring-2 ring-white"
+        />
+        <Avatar
+          fallback="+5"
+          size="lg"
+          className="ring-2 ring-white bg-gray-200 text-gray-600"
+        />
+      </div>
+    </div>
+  ),
+};
+
+export const UserProfileCard: Story = {
+  render: () => (
+    <div className="w-80 bg-white rounded-xl shadow-lg p-6">
+      <div className="flex items-start gap-4">
+        <Avatar
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
+          alt="John Doe"
+          status="online"
+          size="xl"
+        />
+        <div className="flex-1">
+          <h3 className="text-lg font-semibold text-gray-900">John Doe</h3>
+          <p className="text-sm text-gray-600">Software Engineer</p>
+          <div className="flex items-center gap-2 mt-2">
+            <span className="text-xs bg-success-100 text-success-700 px-2 py-1 rounded-full">
+              Available
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="mt-4 pt-4 border-t border-gray-100">
+        <div className="space-y-2 text-sm text-gray-600">
+          <div className="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M14 2H2C0.9 2 0 2.9 0 4V12C0 13.1 0.9 14 2 14H14C15.1 14 16 13.1 16 12V4C16 2.9 15.1 2 14 2ZM14 4L8 8L2 4H14ZM14 12H2V6L8 10L14 6V12Z"/>
+            </svg>
+            <span>john@example.com</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 0C5.24 0 3 2.24 3 5C3 8.88 8 16 8 16C8 16 13 8.88 13 5C13 2.24 10.76 0 8 0ZM8 7C6.9 7 6 6.1 6 5C6 3.9 6.9 3 8 3C9.1 3 10 3.9 10 5C10 6.1 9.1 7 8 7Z"/>
+            </svg>
+            <span>San Francisco, CA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+export const TeamMembers: Story = {
+  render: () => (
+    <div className="w-96 bg-white rounded-xl shadow-lg p-6">
+      <h3 className="text-lg font-semibold text-gray-900 mb-4">Team Members</h3>
+      <div className="space-y-3">
+        {[
+          { name: "Alice Johnson", role: "Product Manager", status: "online" as const, img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" },
+          { name: "Bob Smith", role: "Designer", status: "busy" as const, img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" },
+          { name: "Carol White", role: "Developer", status: "away" as const, img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" },
+          { name: "David Brown", role: "Developer", status: "offline" as const },
+        ].map((member) => (
+          <div key={member.name} className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+            <Avatar
+              src={member.img}
+              alt={member.name}
+              status={member.status}
+            />
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-gray-900 truncate">{member.name}</p>
+              <p className="text-xs text-gray-600 truncate">{member.role}</p>
+            </div>
+            <span className={`
+              text-xs px-2 py-1 rounded-full
+              ${member.status === 'online' ? 'bg-success-100 text-success-700' : ''}
+              ${member.status === 'busy' ? 'bg-error-100 text-error-700' : ''}
+              ${member.status === 'away' ? 'bg-warning-100 text-warning-700' : ''}
+              ${member.status === 'offline' ? 'bg-gray-100 text-gray-700' : ''}
+            `}>
+              {member.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  ),
+};

@@ -1,3 +1,7 @@
+/* Import pre-compiled design system styles */
+@import "@repo/ui/styles";
+
+/* Custom docs app styles */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -19,6 +23,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: var(--font-geist-sans);
 }
 
 * {
@@ -40,7 +45,6 @@ a {
   html {
     color-scheme: dark;
   }
-
   .imgLight {
     display: none;
   }
