@@ -14,7 +14,7 @@ const variantColorMap = {
 } as const;
 
 const progressVariants = cva(
-  "relative h-4 w-full overflow-hidden rounded-full bg-gray-200",
+  "relative h-4 w-full overflow-hidden rounded-full bg-muted",
   {
     variants: {
       size: {
@@ -34,13 +34,14 @@ const progressIndicatorVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary-600",
-        primary: "bg-primary-600",
-        secondary: "bg-secondary-600",
-        success: "bg-success-600",
-        warning: "bg-warning-600",
-        error: "bg-error-600",
-        gradient: "bg-gradient-to-r from-primary-600 to-secondary-600",
+        default: "bg-primary-600 dark:bg-primary-500",
+        primary: "bg-primary-600 dark:bg-primary-500",
+        secondary: "bg-secondary-600 dark:bg-secondary-500",
+        success: "bg-success-600 dark:bg-success-500",
+        warning: "bg-warning-600 dark:bg-warning-500",
+        error: "bg-error-600 dark:bg-error-500",
+        gradient:
+          "bg-gradient-to-r from-primary-600 to-secondary-600 dark:from-primary-500 dark:to-secondary-500",
       },
     },
     defaultVariants: {
@@ -91,10 +92,10 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
       <div className="w-full">
         {showLabel && (
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-gray-700">
+            <span className="text-sm font-medium text-foreground">
               {displayLabel}
             </span>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-muted-foreground">
               {Math.round(percentage)}%
             </span>
           </div>

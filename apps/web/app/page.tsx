@@ -7,7 +7,6 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
   Input,
   Badge,
   Avatar,
@@ -34,17 +33,21 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
+  ThemeToggle,
 } from "@repo/ui";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 py-12 px-4">
+    <div className="min-h-screen bg-background py-12 px-4">
       <main className="max-w-6xl mx-auto space-y-12">
         {/* Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-5xl font-bold text-gray-900">Design System</h1>
-          <p className="text-xl text-gray-600">
-            A comprehensive React component library
+          <div className="flex justify-end mb-4">
+            <ThemeToggle showLabel />
+          </div>
+          <h1 className="text-5xl font-bold text-foreground">Design System</h1>
+          <p className="text-xl text-muted-foreground">
+            A comprehensive React component library with full theme support
           </p>
           <div className="flex gap-3 justify-center">
             <Badge variant="primary">TypeScript</Badge>

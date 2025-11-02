@@ -5,10 +5,10 @@ import { cn } from "../../lib/utils";
 const cardVariants = cva("rounded-xl transition-all duration-200", {
   variants: {
     variant: {
-      elevated: "bg-white shadow-lg hover:shadow-xl",
-      outlined: "bg-white border-2 border-gray-200 hover:border-gray-300",
-      flat: "bg-gray-50 hover:bg-gray-100",
-      ghost: "bg-transparent hover:bg-gray-50",
+      elevated: "bg-card shadow-lg hover:shadow-xl border border-border",
+      outlined: "bg-card border-2 border-border hover:border-ring",
+      flat: "bg-muted hover:bg-accent",
+      ghost: "bg-transparent hover:bg-muted",
     },
     padding: {
       none: "p-0",
@@ -119,7 +119,7 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
     <h3
       ref={ref}
       className={cn(
-        "text-2xl font-bold leading-tight text-gray-900",
+        "text-2xl font-bold leading-tight text-card-foreground",
         className
       )}
       {...props}
@@ -132,7 +132,11 @@ const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   CardDescriptionProps
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn("text-sm text-gray-600", className)} {...props} />
+  <p
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
 ));
 CardDescription.displayName = "CardDescription";
 

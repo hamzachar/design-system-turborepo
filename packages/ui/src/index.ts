@@ -10,6 +10,12 @@ export * from "./components/Progress";
 export * from "./components/Dialog";
 export * from "./components/Select";
 export * from "./components/Tabs";
+export * from "./components/ThemeProvider";
+export * from "./components/ThemeToggle";
+
+// Hooks
+export { useTheme } from "./hooks/useTheme";
+export type { Theme } from "./hooks/useTheme";
 
 // Utilities
 export { cn } from "./lib/utils";

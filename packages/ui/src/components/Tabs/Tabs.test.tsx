@@ -89,7 +89,7 @@ describe("Tabs", () => {
       );
 
       const tabList = screen.getByRole("tablist");
-      expect(tabList).toHaveClass("bg-gray-100");
+      expect(tabList).toHaveClass("bg-muted");
     });
   });
 

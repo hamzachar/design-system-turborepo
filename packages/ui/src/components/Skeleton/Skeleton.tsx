@@ -2,12 +2,12 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
 
-const skeletonVariants = cva("animate-pulse rounded bg-gray-200", {
+const skeletonVariants = cva("animate-pulse rounded bg-muted", {
   variants: {
     variant: {
-      default: "bg-gray-200",
-      light: "bg-gray-100",
-      dark: "bg-gray-300",
+      default: "bg-muted",
+      light: "bg-muted/50",
+      dark: "bg-muted/80 dark:bg-muted",
     },
     shape: {
       rectangle: "rounded",

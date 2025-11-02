@@ -8,12 +8,16 @@ const alertVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gray-50 text-gray-900 border-gray-200",
-        primary: "bg-primary-50 text-primary-900 border-primary-200",
-        success: "bg-success-50 text-success-900 border-success-200",
-        warning: "bg-warning-50 text-warning-900 border-warning-200",
-        error: "bg-error-50 text-error-900 border-error-200",
-        info: "bg-primary-50 text-primary-900 border-primary-200",
+        default: "bg-muted text-foreground border-border",
+        primary:
+          "bg-primary-50 dark:bg-primary-950 text-primary-900 dark:text-primary-100 border-primary-200 dark:border-primary-800",
+        success:
+          "bg-success-50 dark:bg-success-950 text-success-900 dark:text-success-100 border-success-200 dark:border-success-800",
+        warning:
+          "bg-warning-50 dark:bg-warning-950 text-warning-900 dark:text-warning-100 border-warning-200 dark:border-warning-800",
+        error:
+          "bg-error-50 dark:bg-error-950 text-error-900 dark:text-error-100 border-error-200 dark:border-error-800",
+        info: "bg-primary-50 dark:bg-primary-950 text-primary-900 dark:text-primary-100 border-primary-200 dark:border-primary-800",
       },
     },
     defaultVariants: {
@@ -25,12 +29,12 @@ const alertVariants = cva(
 const alertIconVariants = cva("shrink-0", {
   variants: {
     variant: {
-      default: "text-gray-600",
-      primary: "text-primary-600",
-      success: "text-success-600",
-      warning: "text-warning-600",
-      error: "text-error-600",
-      info: "text-primary-600",
+      default: "text-muted-foreground",
+      primary: "text-primary-600 dark:text-primary-400",
+      success: "text-success-600 dark:text-success-400",
+      warning: "text-warning-600 dark:text-warning-400",
+      error: "text-error-600 dark:text-error-400",
+      info: "text-primary-600 dark:text-primary-400",
     },
   },
   defaultVariants: {
@@ -238,13 +242,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
               type="button"
               onClick={handleDismiss}
               className={cn(
-                "shrink-0 rounded-md p-1 transition-colors hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2",
+                "shrink-0 rounded-md p-1 transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring",
                 variant === "primary" && "focus:ring-primary-500",
                 variant === "success" && "focus:ring-success-500",
                 variant === "warning" && "focus:ring-warning-500",
                 variant === "error" && "focus:ring-error-500",
-                variant === "info" && "focus:ring-primary-500",
-                variant === "default" && "focus:ring-gray-500"
+                variant === "info" && "focus:ring-primary-500"
               )}
               aria-label="Dismiss alert"
             >

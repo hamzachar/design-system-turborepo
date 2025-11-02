@@ -9,20 +9,20 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-primary-600 text-white shadow-sm hover:bg-primary-700 hover:shadow-md focus-visible:ring-primary-500 active:bg-primary-800",
+          "bg-primary-600 text-white shadow-sm hover:bg-primary-700 hover:shadow-md focus-visible:ring-primary-500 active:bg-primary-800 dark:bg-primary-500 dark:hover:bg-primary-600 dark:active:bg-primary-700",
         secondary:
-          "bg-secondary-600 text-white shadow-sm hover:bg-secondary-700 hover:shadow-md focus-visible:ring-secondary-500 active:bg-secondary-800",
+          "bg-secondary-600 text-white shadow-sm hover:bg-secondary-700 hover:shadow-md focus-visible:ring-secondary-500 active:bg-secondary-800 dark:bg-secondary-500 dark:hover:bg-secondary-600 dark:active:bg-secondary-700",
         success:
-          "bg-success-600 text-white shadow-sm hover:bg-success-700 hover:shadow-md focus-visible:ring-success-500 active:bg-success-800",
+          "bg-success-600 text-white shadow-sm hover:bg-success-700 hover:shadow-md focus-visible:ring-success-500 active:bg-success-800 dark:bg-success-500 dark:hover:bg-success-600 dark:active:bg-success-700",
         warning:
-          "bg-warning-600 text-white shadow-sm hover:bg-warning-700 hover:shadow-md focus-visible:ring-warning-500 active:bg-warning-800",
+          "bg-warning-600 text-white shadow-sm hover:bg-warning-700 hover:shadow-md focus-visible:ring-warning-500 active:bg-warning-800 dark:bg-warning-500 dark:hover:bg-warning-600 dark:active:bg-warning-700",
         danger:
-          "bg-error-600 text-white shadow-sm hover:bg-error-700 hover:shadow-md focus-visible:ring-error-500 active:bg-error-800",
+          "bg-error-600 text-white shadow-sm hover:bg-error-700 hover:shadow-md focus-visible:ring-error-500 active:bg-error-800 dark:bg-error-500 dark:hover:bg-error-600 dark:active:bg-error-700",
         outline:
-          "border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 focus-visible:ring-gray-400 active:bg-gray-100",
+          "border-2 border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring active:bg-accent/80",
         ghost:
-          "bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-gray-400",
-        link: "bg-transparent text-primary-600 underline-offset-4 hover:underline hover:text-primary-700 focus-visible:ring-primary-400",
+          "bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring",
+        link: "bg-transparent text-primary-600 underline-offset-4 hover:underline hover:text-primary-700 focus-visible:ring-primary-400 dark:text-primary-400 dark:hover:text-primary-300",
         gradient:
           "bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-lg hover:shadow-xl hover:from-primary-700 hover:to-secondary-700 focus-visible:ring-primary-500",
       },

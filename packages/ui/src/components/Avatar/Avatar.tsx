@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
 
 const avatarVariants = cva(
-  "relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gray-100 shrink-0 select-none",
+  "relative inline-flex items-center justify-center overflow-hidden rounded-full bg-muted shrink-0 select-none",
   {
     variants: {
       size: {
@@ -40,7 +40,7 @@ export interface AvatarProps
 
 const statusColorsMap: Record<AvatarStatus, string> = {
   online: "bg-success-500",
-  offline: "bg-gray-400",
+  offline: "bg-muted-foreground",
   away: "bg-warning-500",
   busy: "bg-error-500",
 };
@@ -95,7 +95,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
           className="h-full w-full object-cover rounded-full"
         />
         <AvatarPrimitive.Fallback
-          className="flex h-full w-full items-center justify-center rounded-full bg-gray-100 font-medium text-gray-600 uppercase"
+          className="flex h-full w-full items-center justify-center rounded-full bg-muted font-medium text-muted-foreground uppercase"
           delayMs={delayMs}
         >
           {initials}
@@ -103,7 +103,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
         {status && (
           <span
             className={cn(
-              "absolute bottom-0 right-0 rounded-full border-white",
+              "absolute bottom-0 right-0 rounded-full border-2 border-background",
               statusColorsMap[status],
               statusSizesMap[size]
             )}

@@ -16,7 +16,7 @@ const DialogOverlay = React.forwardRef<
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
-        "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm data-[state=open]:animate-[fadeIn_0.2s_ease-out] data-[state=closed]:animate-[fadeIn_0.2s_ease-out_reverse]",
+        "fixed inset-0 z-50 bg-black/60 dark:bg-black/80 backdrop-blur-sm data-[state=open]:animate-[fadeIn_0.2s_ease-out] data-[state=closed]:animate-[fadeIn_0.2s_ease-out_reverse]",
         className
       )}
       {...props}
@@ -52,7 +52,7 @@ const DialogContent = React.forwardRef<
       <DialogPrimitive.Content
         ref={ref}
         className={cn(
-          "fixed left-[50%] top-[50%] z-50 grid w-full translate-x-[-50%] translate-y-[-50%] gap-4 bg-white p-6 shadow-lg duration-200 data-[state=open]:animate-[scaleIn_0.2s_ease-out] data-[state=closed]:animate-[scaleIn_0.2s_ease-out_reverse] rounded-xl",
+          "fixed left-[50%] top-[50%] z-50 grid w-full translate-x-[-50%] translate-y-[-50%] gap-4 bg-card text-card-foreground p-6 shadow-lg duration-200 data-[state=open]:animate-[scaleIn_0.2s_ease-out] data-[state=closed]:animate-[scaleIn_0.2s_ease-out_reverse] rounded-xl border border-border",
           sizeClasses[size],
           className
         )}
@@ -60,7 +60,7 @@ const DialogContent = React.forwardRef<
       >
         {children}
         {showClose && (
-          <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:pointer-events-none">
+          <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none text-muted-foreground hover:text-foreground">
             <svg
               width={svgSizes.icon.sm}
               height={svgSizes.icon.sm}
@@ -126,7 +126,7 @@ const DialogTitle = React.forwardRef<
     <DialogPrimitive.Title
       ref={ref}
       className={cn(
-        "text-lg font-semibold leading-none tracking-tight text-gray-900",
+        "text-lg font-semibold leading-none tracking-tight text-foreground",
         className
       )}
       {...props}
@@ -142,7 +142,7 @@ const DialogDescription = React.forwardRef<
   return (
     <DialogPrimitive.Description
       ref={ref}
-      className={cn("text-sm text-gray-600", className)}
+      className={cn("text-sm text-muted-foreground", className)}
       {...props}
     />
   );

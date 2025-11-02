@@ -3,18 +3,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
 
 const inputVariants = cva(
-  "w-full rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:bg-gray-50",
+  "w-full rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:bg-muted",
   {
     variants: {
       variant: {
         default:
-          "border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-primary-500 focus:ring-primary-500",
+          "border-input bg-background text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring",
         error:
-          "border-error-500 bg-white text-gray-900 placeholder:text-gray-400 focus:border-error-500 focus:ring-error-500",
+          "border-error-500 bg-background text-foreground placeholder:text-muted-foreground focus:border-error-500 focus:ring-error-500",
         success:
-          "border-success-500 bg-white text-gray-900 placeholder:text-gray-400 focus:border-success-500 focus:ring-success-500",
+          "border-success-500 bg-background text-foreground placeholder:text-muted-foreground focus:border-success-500 focus:ring-success-500",
         warning:
-          "border-warning-500 bg-white text-gray-900 placeholder:text-gray-400 focus:border-warning-500 focus:ring-warning-500",
+          "border-warning-500 bg-background text-foreground placeholder:text-muted-foreground focus:border-warning-500 focus:ring-warning-500",
       },
       size: {
         sm: "h-8 px-3 py-1.5 text-sm",
@@ -69,7 +69,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="text-sm font-medium text-gray-700"
+            className="text-sm font-medium text-foreground"
           >
             {label}
           </label>
@@ -77,7 +77,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
               {leftIcon}
             </div>
           )}
@@ -104,7 +104,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           />
 
           {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
               {rightIcon}
             </div>
           )}
@@ -121,7 +121,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
 
         {helperText && !error && (
-          <p id={`${inputId}-helper`} className="text-sm text-gray-500">
+          <p id={`${inputId}-helper`} className="text-sm text-muted-foreground">
             {helperText}
           </p>
         )}

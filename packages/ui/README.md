@@ -2,7 +2,53 @@
 
 A comprehensive, accessible React component library built with TypeScript, Tailwind CSS, and Radix UI.
 
+## ✨ Features
+
+- 🎨 **Complete Theme System** - Light, dark, and system modes with smooth transitions
+- ♿ **Accessible** - WCAG AA compliant components
+- 🔧 **TypeScript** - Full type safety
+- 🎯 **Customizable** - Extensive variants and configuration
+- 📱 **Responsive** - Mobile-first design
+- ⚡ **Performance** - Optimized bundle size
+- 🧪 **Well Tested** - Comprehensive test coverage
+
+## 🌓 Theme System
+
+This design system includes a powerful theme management system:
+
+- **Light Mode**: Clean, bright interface
+- **Dark Mode**: Eye-friendly dark theme
+- **System Mode**: Automatically follows OS preferences
+- **Persistent**: Theme choice saved to localStorage
+- **Seamless**: Smooth transitions between themes
+
+### Quick Start with Themes
+
+```tsx
+import { ThemeProvider, ThemeToggle, Button } from "@repo/ui";
+import "@repo/ui/styles";
+
+function App() {
+  return (
+    <ThemeProvider defaultTheme="system">
+      <nav>
+        <ThemeToggle showLabel />
+      </nav>
+      <main>{/* Your content */}</main>
+    </ThemeProvider>
+  );
+}
+```
+
+For detailed theme documentation, see [THEME.md](./THEME.md).
+
 ## 🎨 Components
+
+### Theme Components
+
+- **ThemeProvider** - Provides theme context to your app
+- **ThemeToggle** - Button to switch between themes
+- **useTheme** - Hook to programmatically control themes
 
 ### Form Components
 
@@ -37,17 +83,27 @@ npm install @repo/ui
 
 ## 🚀 Usage
 
+### Basic Usage
+
 ```tsx
-import { Button, Card, CardHeader, CardTitle, Input } from "@repo/ui";
+import {
+  ThemeProvider,
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  Input
+} from "@repo/ui";
 import "@repo/ui/styles";
 
 function App() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Welcome</CardTitle>
-      </CardHeader>
-      <Input label="Email" type="email" />
+    <ThemeProvider>
+      <Card>
+        <CardHeader>
+          <CardTitle>Welcome</CardTitle>
+        </CardHeader>
+        <Input label="Email" type="email" />
       <Button variant="primary">Submit</Button>
     </Card>
   );
