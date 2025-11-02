@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
+import { svgSizes, sizes } from "../../tokens/spacing";
 
 const alertVariants = cva(
   "relative w-full rounded-lg border p-4 transition-all duration-200",
@@ -68,8 +69,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
     const defaultIcons = {
       default: (
         <svg
-          width="20"
-          height="20"
+          width={svgSizes.icon.md}
+          height={svgSizes.icon.md}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -79,12 +80,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
             cy="10"
             r="8"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
           />
           <path
             d="M10 6V10"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
             strokeLinecap="round"
           />
           <circle cx="10" cy="13" r="0.5" fill="currentColor" />
@@ -92,8 +93,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       ),
       primary: (
         <svg
-          width="20"
-          height="20"
+          width={svgSizes.icon.md}
+          height={svgSizes.icon.md}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -103,12 +104,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
             cy="10"
             r="8"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
           />
           <path
             d="M10 6V10"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
             strokeLinecap="round"
           />
           <circle cx="10" cy="13" r="0.5" fill="currentColor" />
@@ -116,8 +117,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       ),
       success: (
         <svg
-          width="20"
-          height="20"
+          width={svgSizes.icon.md}
+          height={svgSizes.icon.md}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -127,12 +128,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
             cy="10"
             r="8"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
           />
           <path
             d="M7 10L9 12L13 8"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -140,8 +141,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       ),
       warning: (
         <svg
-          width="20"
-          height="20"
+          width={svgSizes.icon.md}
+          height={svgSizes.icon.md}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -149,14 +150,14 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
           <path
             d="M10 2L2 16H18L10 2Z"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M10 8V11"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
             strokeLinecap="round"
           />
           <circle cx="10" cy="14" r="0.5" fill="currentColor" />
@@ -164,8 +165,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       ),
       error: (
         <svg
-          width="20"
-          height="20"
+          width={svgSizes.icon.md}
+          height={svgSizes.icon.md}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -175,20 +176,20 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
             cy="10"
             r="8"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
           />
           <path
             d="M12 8L8 12M8 8L12 12"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
             strokeLinecap="round"
           />
         </svg>
       ),
       info: (
         <svg
-          width="20"
-          height="20"
+          width={svgSizes.icon.md}
+          height={svgSizes.icon.md}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -198,12 +199,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
             cy="10"
             r="8"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
           />
           <path
             d="M10 10V14"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth={sizes.stroke.default}
             strokeLinecap="round"
           />
           <circle cx="10" cy="7" r="0.5" fill="currentColor" />
@@ -248,8 +249,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
               aria-label="Dismiss alert"
             >
               <svg
-                width="16"
-                height="16"
+                width={svgSizes.icon.sm}
+                height={svgSizes.icon.sm}
                 viewBox="0 0 16 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +259,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
                 <path
                   d="M12 4L4 12M4 4L12 12"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth={sizes.stroke.default}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />

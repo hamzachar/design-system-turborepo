@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { cn } from "../../lib/utils";
+import { svgSizes, sizes } from "../../tokens/spacing";
 
 const Select = SelectPrimitive.Root;
 const SelectGroup = SelectPrimitive.Group;
@@ -32,8 +33,8 @@ const SelectTrigger = React.forwardRef<
       {children}
       <SelectPrimitive.Icon asChild>
         <svg
-          width="16"
-          height="16"
+          width={svgSizes.icon.sm}
+          height={svgSizes.icon.sm}
           viewBox="0 0 16 16"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +43,7 @@ const SelectTrigger = React.forwardRef<
           <path
             d="M4 6L8 10L12 6"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth={sizes.stroke.thick}
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -66,11 +67,16 @@ const SelectScrollUpButton = React.forwardRef<
       )}
       {...props}
     >
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <svg
+        width={svgSizes.icon.sm}
+        height={svgSizes.icon.sm}
+        viewBox="0 0 16 16"
+        fill="none"
+      >
         <path
           d="M12 10L8 6L4 10"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth={sizes.stroke.thick}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -93,11 +99,16 @@ const SelectScrollDownButton = React.forwardRef<
       )}
       {...props}
     >
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <svg
+        width={svgSizes.icon.sm}
+        height={svgSizes.icon.sm}
+        viewBox="0 0 16 16"
+        fill="none"
+      >
         <path
           d="M4 6L8 10L12 6"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth={sizes.stroke.thick}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -181,11 +192,16 @@ const SelectItem = React.forwardRef<
     >
       <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <svg
+            width={svgSizes.icon.sm}
+            height={svgSizes.icon.sm}
+            viewBox="0 0 16 16"
+            fill="none"
+          >
             <path
               d="M13 4L6 11L3 8"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth={sizes.stroke.thick}
               strokeLinecap="round"
               strokeLinejoin="round"
             />

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
+import { svgSizes, sizes } from "../../tokens/spacing";
 
 const badgeVariants = cva(
   "inline-flex items-center gap-1 font-semibold transition-all duration-200 select-none",
@@ -117,8 +118,8 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
             aria-label="Remove"
           >
             <svg
-              width="12"
-              height="12"
+              width={svgSizes.icon.xs}
+              height={svgSizes.icon.xs}
               viewBox="0 0 12 12"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +127,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
               <path
                 d="M9 3L3 9M3 3L9 9"
                 stroke="currentColor"
-                strokeWidth="1.5"
+                strokeWidth={sizes.stroke.default}
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />

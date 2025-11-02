@@ -37,3 +37,54 @@ export const spacing = {
 } as const;
 
 export type Spacing = keyof typeof spacing;
+
+// Size presets for common component sizes
+export const sizes = {
+  icon: {
+    sm: spacing[4], // 16px
+    md: spacing[5], // 20px
+    lg: spacing[6], // 24px
+    xl: spacing[8], // 32px
+  },
+  button: {
+    sm: spacing[8], // h-8 (32px)
+    md: spacing[10], // h-10 (40px)
+    lg: spacing[12], // h-12 (48px)
+    xl: spacing[14], // h-14 (56px)
+  },
+  input: {
+    sm: spacing[8], // h-8 (32px)
+    md: spacing[10], // h-10 (40px)
+    lg: spacing[12], // h-12 (48px)
+  },
+  border: {
+    thin: "1px",
+    default: "2px",
+    thick: "3px",
+  },
+  radius: {
+    sm: spacing[1], // 4px
+    md: spacing[2], // 8px (rounded-lg in Tailwind)
+    lg: spacing[3], // 12px
+    xl: spacing[4], // 16px
+    full: "9999px",
+  },
+  stroke: {
+    thin: "1",
+    default: "1.5",
+    thick: "2",
+    bold: "3",
+    extraBold: "4",
+  },
+} as const;
+
+// Numeric values for SVG attributes (width, height, strokeWidth)
+export const svgSizes = {
+  icon: {
+    xs: 12,
+    sm: 16,
+    md: 20,
+    lg: 24,
+    xl: 32,
+  },
+} as const;

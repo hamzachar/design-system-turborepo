@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { cn } from "../../lib/utils";
+import { svgSizes, sizes } from "../../tokens/spacing";
 
 const Dialog = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;
@@ -61,8 +62,8 @@ const DialogContent = React.forwardRef<
         {showClose && (
           <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:pointer-events-none">
             <svg
-              width="16"
-              height="16"
+              width={svgSizes.icon.sm}
+              height={svgSizes.icon.sm}
               viewBox="0 0 16 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +72,7 @@ const DialogContent = React.forwardRef<
               <path
                 d="M12 4L4 12M4 4L12 12"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth={sizes.stroke.thick}
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />

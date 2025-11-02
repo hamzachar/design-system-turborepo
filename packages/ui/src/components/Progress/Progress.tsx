@@ -1,6 +1,17 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
+import { spacing } from "../../tokens/spacing";
+
+// CSS variable color mapping for SVG stroke colors - references globals.css @theme
+const variantColorMap = {
+  default: "var(--color-primary-600)",
+  primary: "var(--color-primary-600)",
+  secondary: "var(--color-secondary-600)",
+  success: "var(--color-success-600)",
+  warning: "var(--color-warning-600)",
+  error: "var(--color-error-600)",
+} as const;
 
 const progressVariants = cva(
   "relative h-4 w-full overflow-hidden rounded-full bg-gray-200",
@@ -106,9 +117,11 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
             style={{
               width: `${percentage}%`,
               backgroundImage: striped
-                ? "linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)"
+                ? `linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)`
                 : undefined,
-              backgroundSize: striped ? "1rem 1rem" : undefined,
+              backgroundSize: striped
+                ? `${spacing[4]} ${spacing[4]}`
+                : undefined,
             }}
           />
         </div>
@@ -162,15 +175,6 @@ const CircularProgress = React.forwardRef<
     const circumference = radius * 2 * Math.PI;
     const offset = circumference - (percentage / 100) * circumference;
 
-    const variantColors = {
-      default: "#2563eb",
-      primary: "#2563eb",
-      secondary: "#9333ea",
-      success: "#16a34a",
-      warning: "#d97706",
-      error: "#dc2626",
-    };
-
     return (
       <div
         ref={ref}
@@ -200,7 +204,7 @@ const CircularProgress = React.forwardRef<
             cx={size / 2}
             cy={size / 2}
             r={radius}
-            stroke={variantColors[variant]}
+            stroke={variantColorMap[variant]}
             strokeWidth={strokeWidth}
             fill="none"
             strokeDasharray={circumference}
