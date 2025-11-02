@@ -21,7 +21,7 @@ const alertVariants = cva(
   }
 );
 
-const alertIconVariants = cva("flex-shrink-0", {
+const alertIconVariants = cva("shrink-0", {
   variants: {
     variant: {
       default: "text-gray-600",
@@ -237,7 +237,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
               type="button"
               onClick={handleDismiss}
               className={cn(
-                "flex-shrink-0 rounded-md p-1 transition-colors hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2",
+                "shrink-0 rounded-md p-1 transition-colors hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2",
                 variant === "primary" && "focus:ring-primary-500",
                 variant === "success" && "focus:ring-success-500",
                 variant === "warning" && "focus:ring-warning-500",
